@@ -1,6 +1,21 @@
-def main():
-    print("Hello from ai-news-aggregator!")
+from app.runner import run_scrapers
+
+
+def main(hours: int = 24, top_n: int = 10):
+    return run_scrapers(hours=hours)
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    
+    hours = 200
+    top_n = 10
+    
+    if len(sys.argv) > 1:
+        hours = int(sys.argv[1])
+    if len(sys.argv) > 2:
+        top_n = int(sys.argv[2])
+    
+    result = main(hours=hours, top_n=top_n)
+    print(result)
+
