@@ -1,14 +1,14 @@
-from app.runner import run_scrapers
+from app.daily_runner import run_daily_pipeline
 
 
 def main(hours: int = 24, top_n: int = 10):
-    return run_scrapers(hours=hours)
+    return run_daily_pipeline(hours=hours)
 
 
 if __name__ == "__main__":
     import sys
     
-    hours = 200
+    hours = 24
     top_n = 10
     
     if len(sys.argv) > 1:
